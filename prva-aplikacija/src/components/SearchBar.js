@@ -6,6 +6,7 @@ import { searchAlbum } from '../redux/albums/albums'
 const SearchBar = () => {
   const [searchText, saveSearchText] = useState('')
   const [choose, setChoose] = useState('Choose')
+  const [disable, setDisable] = useState('disable')
 
   const dispatch = useDispatch()
 
@@ -23,6 +24,7 @@ const SearchBar = () => {
       onChange={saveText}
       value={searchText}
       placeholder='Search albums by:'
+      disabled={disable}
     />
     <DropdownButton
       as={InputGroup.Prepend}
@@ -34,16 +36,19 @@ const SearchBar = () => {
       <Dropdown.Item onClick={
         () => {
           setChoose('Name')
+          setDisable('')
         }
       }>Name</Dropdown.Item>
       <Dropdown.Item onClick={
         () => {
           setChoose('Year')
+          setDisable('')
         }
       }>Year</Dropdown.Item>
       <Dropdown.Item onClick={
         () => {
           setChoose('Artist')
+          setDisable('')
         }
       }>Artist</Dropdown.Item>
       <Dropdown.Divider />
