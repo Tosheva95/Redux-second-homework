@@ -6,7 +6,7 @@ import { searchAlbum } from '../redux/albums/albums'
 const SearchBar = () => {
   const [searchText, saveSearchText] = useState('')
   const [choose, setChoose] = useState('Choose')
-  const [disable, setDisable] = useState('disable')
+  const [disable, setDisable] = useState(true)
 
   const dispatch = useDispatch()
 
